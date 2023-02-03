@@ -5,12 +5,12 @@ FROM golang
 # create the user
 RUN useradd -r -s /bin/false helloworld
 # Go get and build
-RUN go get github.com/willejs/go-hello-world
+RUN go get github.com/verymail/go-hello.git
 # RUN go install github.com/willejs/go-hello-world
-RUN go install github.com/willejs/go-hello-world@latest
+RUN go build -o gohell
 
 # Run the service
-ENTRYPOINT /go/bin/go-hello-world
+ENTRYPOINT ./gohell
 
 # Document that the service listens on port 8080.
 EXPOSE 8484
